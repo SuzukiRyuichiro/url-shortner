@@ -1,7 +1,8 @@
 import shortId from 'shortid'
 import { createClient } from 'redis'
 
-const client = createClient()
+// const client = createClient({ legacyMode: true })
+const client = createClient({ socket: { host: 'redis' } })
 
 client.on('connect', () => {
   console.log('Connected')

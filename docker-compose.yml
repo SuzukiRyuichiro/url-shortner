@@ -4,15 +4,19 @@ services:
     build: ./redis
     ports:
       - "6379:6379"
+    hostname: redis
     volumes:
       - redis-data:/data
   api:
+    restart: on-failure
     build: ./api
     ports:
       - "8080:8080"
     volumes:
       - ./api:/usr/app
       - /usr/app/node_modules
+    depends_on:
+      - redis
   nginx:
     build: ./nginx
     ports:
@@ -20,7 +24,6 @@ services:
       - "443:443"
     depends_on:
       - api
-      - redis
 
 volumes:
   redis-data:
