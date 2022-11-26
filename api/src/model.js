@@ -3,8 +3,6 @@ import { createClient } from 'redis'
 
 const client = createClient()
 
-client.on('error', (err) => console.log('Redis Client Error', err))
-
 client.on('connect', () => {
   console.log('Connected')
 })
@@ -14,8 +12,8 @@ client.on('ready', () => {
 })
 
 client.on('error', (err) => {
-  console.log('Error')
-  process.exit(0)
+  console.log('Error', err)
+  // process.exit(0)
 })
 
 await client.connect()
