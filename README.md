@@ -91,3 +91,9 @@ There is no record of given URL
 	"error": "Could not find the URL"
 }
 ```
+
+# Reasons of the stack
+
+- I chose redis for database since URL shortener only requires a simple database that doesn't have relations between models. Given it's fastness and scalability, I chose redis.
+- I chose Node as the frame work since I knew the logic of the app would be fairly simple, so I wanted to use something that I know I can write and something that does not have much boilerplate code to over complicate the app. Also, I chose Node since the community is large and I knew I would be able to find necessary libraries for the development.
+- I used docker so it'd be simpler to test the API on other machines as well.
