@@ -3,11 +3,7 @@ import { createClient } from 'redis'
 
 // const client = createClient({ legacyMode: true })
 const client = createClient({
-  socket: {
-    host: process.env.REDIS_HOST || 'redis',
-    port: process.env.REDIS_PORT || 6379,
-  },
-  password: process.env.REDIS_PASSWORD,
+  url: process.env.REDISCLOUD_URL || 'redis://redis:6379',
 })
 
 client.on('connect', () => {
