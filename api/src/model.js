@@ -19,7 +19,7 @@ client.on('ready', () => {
 
 client.on('error', (err) => {
   console.log('Error', err)
-  // process.exit(0)
+  process.exit(0)
 })
 
 await client.connect()
