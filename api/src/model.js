@@ -1,11 +1,5 @@
 import shortId from 'shortid'
 import { createClient } from 'redis'
-import * as dotenv from 'dotenv'
-
-// in development, load environment variables from .env
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config()
-}
 
 const client = createClient({
   url: process.env.REDISCLOUD_URL || 'redis://redis:6379',
