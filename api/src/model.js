@@ -2,7 +2,12 @@ import shortId from 'shortid'
 import { createClient } from 'redis'
 
 // const client = createClient({ legacyMode: true })
-const client = createClient({ socket: { host: 'redis' } })
+const client = createClient({
+  socket: {
+    host: process.env.REDIS_HOST || 'redis',
+    port: process.env.REDIS_PORT || 6379,
+  },
+})
 
 client.on('connect', () => {
   console.log('Connected')
